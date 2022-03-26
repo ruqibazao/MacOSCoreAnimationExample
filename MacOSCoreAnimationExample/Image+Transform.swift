@@ -20,7 +20,7 @@ extension NSImage {
         guard let data = tiffRepresentation else { return nil }
         guard let ciImage = CIImage(data: data) else { return nil }
 
-        var transform:CGAffineTransform
+        var transform: CGAffineTransform
         switch orientation {
         case .vertical:
             transform = CGAffineTransform(scaleX: 1, y: -1)
@@ -73,7 +73,7 @@ extension NSImage {
     }
 }
 
-/*
+/**
 extension NSImage {
     func mirrored() -> NSImage? {
         guard
@@ -123,4 +123,4 @@ extension NSImage {
     }
 
 }
-**/
+*/

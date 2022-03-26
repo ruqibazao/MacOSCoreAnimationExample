@@ -684,7 +684,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -706,11 +706,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="MacOSCoreAnimationExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="613" height="454"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1159" height="464"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="vKV-vq-bZx">
-                                <rect key="frame" x="111" y="0.0" width="502" height="354"/>
+                                <rect key="frame" x="657" y="0.0" width="502" height="354"/>
                                 <view key="contentView" id="pED-ED-R0D">
                                     <rect key="frame" x="1" y="1" width="500" height="352"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -791,23 +791,112 @@
                                     </constraints>
                                 </view>
                             </box>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="cb0-Pc-kis" customClass="AnimationView" customModule="MacOSCoreAnimationExample" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="1139" height="444"/>
+                                <subviews>
+                                    <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvC-k2-50S">
+                                        <rect key="frame" x="0.0" y="384" width="1139" height="60"/>
+                                        <subviews>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="q05-be-ca5">
+                                                <rect key="frame" x="0.0" y="0.0" width="112" height="60"/>
+                                            </customView>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="gUP-Ch-ROl">
+                                                <rect key="frame" x="114" y="0.0" width="112" height="60"/>
+                                            </customView>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="e6j-YL-CaN">
+                                                <rect key="frame" x="228" y="0.0" width="112" height="60"/>
+                                            </customView>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="swh-Lr-nlB">
+                                                <rect key="frame" x="342" y="0.0" width="112" height="60"/>
+                                            </customView>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="oUw-c6-98i">
+                                                <rect key="frame" x="456" y="0.0" width="113" height="60"/>
+                                            </customView>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="rFk-u9-2Yh">
+                                                <rect key="frame" x="571" y="0.0" width="112" height="60"/>
+                                            </customView>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="1uE-Uh-Jxe">
+                                                <rect key="frame" x="685" y="0.0" width="112" height="60"/>
+                                            </customView>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="GMf-1Z-kmF">
+                                                <rect key="frame" x="799" y="0.0" width="112" height="60"/>
+                                            </customView>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ICN-Gj-x5d">
+                                                <rect key="frame" x="913" y="0.0" width="112" height="60"/>
+                                            </customView>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="YEs-CN-riI">
+                                                <rect key="frame" x="1027" y="0.0" width="112" height="60"/>
+                                            </customView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="hgz-ol-syj"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gvC-k2-50S" firstAttribute="top" secondItem="cb0-Pc-kis" secondAttribute="top" id="L8m-K0-Ssj"/>
+                                    <constraint firstAttribute="trailing" secondItem="gvC-k2-50S" secondAttribute="trailing" id="QmJ-nI-cRN"/>
+                                    <constraint firstItem="gvC-k2-50S" firstAttribute="leading" secondItem="cb0-Pc-kis" secondAttribute="leading" id="om8-0l-g9Y"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="digitView0" destination="YEs-CN-riI" id="UFt-Vf-ukh"/>
+                                    <outlet property="digitView1" destination="q05-be-ca5" id="GTx-s5-ijz"/>
+                                    <outlet property="digitView2" destination="gUP-Ch-ROl" id="yMe-zr-n9G"/>
+                                    <outlet property="digitView3" destination="e6j-YL-CaN" id="fhQ-3H-r7b"/>
+                                    <outlet property="digitView4" destination="swh-Lr-nlB" id="DTD-8V-h7c"/>
+                                    <outlet property="digitView5" destination="oUw-c6-98i" id="Rki-xN-TvM"/>
+                                    <outlet property="digitView6" destination="rFk-u9-2Yh" id="3oR-C2-HlB"/>
+                                    <outlet property="digitView7" destination="1uE-Uh-Jxe" id="N1m-b3-O4u"/>
+                                    <outlet property="digitView8" destination="GMf-1Z-kmF" id="Hxt-ws-z4Z"/>
+                                    <outlet property="digitView9" destination="ICN-Gj-x5d" id="1kH-Yb-6AT"/>
+                                </connections>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="vKV-vq-bZx" secondAttribute="bottom" id="6HH-e9-hCN"/>
                             <constraint firstItem="vKV-vq-bZx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="100" id="F18-tl-c12"/>
+                            <constraint firstItem="cb0-Pc-kis" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="10" id="HAo-ve-QV8"/>
                             <constraint firstAttribute="trailing" secondItem="vKV-vq-bZx" secondAttribute="trailing" id="R4w-uJ-MjC"/>
+                            <constraint firstAttribute="trailing" secondItem="cb0-Pc-kis" secondAttribute="trailing" constant="10" id="YtC-lg-laE"/>
                             <constraint firstAttribute="trailing" secondItem="vKV-vq-bZx" secondAttribute="trailing" id="dDU-6F-oPM"/>
                             <constraint firstAttribute="bottom" secondItem="vKV-vq-bZx" secondAttribute="bottom" id="fxr-vf-qF9"/>
+                            <constraint firstItem="cb0-Pc-kis" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="h8y-DH-5xn"/>
+                            <constraint firstAttribute="bottom" secondItem="cb0-Pc-kis" secondAttribute="bottom" constant="10" id="hSw-Yf-JLk"/>
                             <constraint firstItem="vKV-vq-bZx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="100" id="yaU-Qe-UMQ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="animationView" destination="cb0-Pc-kis" id="VH5-zv-0ye"/>
                         <outlet property="imageView" destination="a7G-Ym-rZe" id="z2P-h8-qj2"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141.5" y="655"/>
+            <point key="canvasLocation" x="-73" y="660"/>
         </scene>
     </scenes>
     <resources>
