@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -706,11 +706,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="MacOSCoreAnimationExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="1159" height="464"/>
+                        <rect key="frame" x="0.0" y="0.0" width="629" height="464"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="vKV-vq-bZx">
-                                <rect key="frame" x="657" y="0.0" width="502" height="354"/>
+                            <box hidden="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="vKV-vq-bZx">
+                                <rect key="frame" x="127" y="0.0" width="502" height="354"/>
                                 <view key="contentView" id="pED-ED-R0D">
                                     <rect key="frame" x="1" y="1" width="500" height="352"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -792,40 +792,40 @@
                                 </view>
                             </box>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="cb0-Pc-kis" customClass="AnimationView" customModule="MacOSCoreAnimationExample" customModuleProvider="target">
-                                <rect key="frame" x="10" y="10" width="1139" height="444"/>
+                                <rect key="frame" x="10" y="200" width="609" height="254"/>
                                 <subviews>
-                                    <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvC-k2-50S">
-                                        <rect key="frame" x="0.0" y="384" width="1139" height="60"/>
+                                    <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="1" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvC-k2-50S">
+                                        <rect key="frame" x="0.0" y="194" width="609" height="60"/>
                                         <subviews>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="q05-be-ca5">
-                                                <rect key="frame" x="0.0" y="0.0" width="112" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                             </customView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="gUP-Ch-ROl">
-                                                <rect key="frame" x="114" y="0.0" width="112" height="60"/>
+                                                <rect key="frame" x="61" y="0.0" width="60" height="60"/>
                                             </customView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="e6j-YL-CaN">
-                                                <rect key="frame" x="228" y="0.0" width="112" height="60"/>
+                                                <rect key="frame" x="122" y="0.0" width="60" height="60"/>
                                             </customView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="swh-Lr-nlB">
-                                                <rect key="frame" x="342" y="0.0" width="112" height="60"/>
+                                                <rect key="frame" x="183" y="0.0" width="60" height="60"/>
                                             </customView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="oUw-c6-98i">
-                                                <rect key="frame" x="456" y="0.0" width="113" height="60"/>
+                                                <rect key="frame" x="244" y="0.0" width="60" height="60"/>
                                             </customView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="rFk-u9-2Yh">
-                                                <rect key="frame" x="571" y="0.0" width="112" height="60"/>
+                                                <rect key="frame" x="305" y="0.0" width="60" height="60"/>
                                             </customView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="1uE-Uh-Jxe">
-                                                <rect key="frame" x="685" y="0.0" width="112" height="60"/>
+                                                <rect key="frame" x="366" y="0.0" width="60" height="60"/>
                                             </customView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="GMf-1Z-kmF">
-                                                <rect key="frame" x="799" y="0.0" width="112" height="60"/>
+                                                <rect key="frame" x="427" y="0.0" width="60" height="60"/>
                                             </customView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="ICN-Gj-x5d">
-                                                <rect key="frame" x="913" y="0.0" width="112" height="60"/>
+                                                <rect key="frame" x="488" y="0.0" width="60" height="60"/>
                                             </customView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="YEs-CN-riI">
-                                                <rect key="frame" x="1027" y="0.0" width="112" height="60"/>
+                                                <rect key="frame" x="549" y="0.0" width="60" height="60"/>
                                             </customView>
                                         </subviews>
                                         <constraints>
@@ -885,7 +885,7 @@
                             <constraint firstAttribute="trailing" secondItem="vKV-vq-bZx" secondAttribute="trailing" id="dDU-6F-oPM"/>
                             <constraint firstAttribute="bottom" secondItem="vKV-vq-bZx" secondAttribute="bottom" id="fxr-vf-qF9"/>
                             <constraint firstItem="cb0-Pc-kis" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="h8y-DH-5xn"/>
-                            <constraint firstAttribute="bottom" secondItem="cb0-Pc-kis" secondAttribute="bottom" constant="10" id="hSw-Yf-JLk"/>
+                            <constraint firstAttribute="bottom" secondItem="cb0-Pc-kis" secondAttribute="bottom" constant="200" id="hSw-Yf-JLk"/>
                             <constraint firstItem="vKV-vq-bZx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="100" id="yaU-Qe-UMQ"/>
                         </constraints>
                     </view>
@@ -896,7 +896,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-73" y="660"/>
+            <point key="canvasLocation" x="76" y="679"/>
         </scene>
     </scenes>
     <resources>

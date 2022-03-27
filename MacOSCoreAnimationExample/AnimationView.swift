@@ -53,40 +53,176 @@ class AnimationView: NSView {
         wantsLayer = true
         layer?.backgroundColor = NSColor.darkGray.cgColor
 //        test1()
-//        testMagnificationFilter()
+        testMagnificationFilter()
 //        shouldRasterize()
 //        transform()
 //        testTextLayer()
-        testTransfromLayer()
+//        testTransfromLayer()
+//        testGradientLayer()
+//        testReplicatorLayer()
+        testReplicatorLayer2()
+
+    }
+    
+    func testReplicatorLayer2() {
+        let replicator = CAReplicatorLayer()
+        layer = replicator
+        replicator.instanceCount = 2
+        replicator.frame = NSRect(x: 0, y: 0, width: 100, height: 100)
+        
+        var transform = CATransform3DIdentity
+        let verticalOffset = bounds.size.height + 2
+        transform = CATransform3DTranslate(transform, 0, verticalOffset, 0)
+        transform = CATransform3DScale(transform, 1, -1, 0)
+        replicator.instanceTransform = transform
+        
+        replicator.instanceAlphaOffset = -0.2
+        
+        addSubview(imageView)
+        imageView.wantsLayer = true
+        imageView.imageScaling = .scaleProportionallyUpOrDown
+        imageView.snp.makeConstraints { make in
+            make.top.leading.equalTo(0)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+        }
+        imageView.image = image6
+    }
+    
+    func testReplicatorLayer() {
+        let replicator = CAReplicatorLayer()
+        replicator.frame = bounds
+        layer?.addSublayer(replicator)
+        
+        replicator.instanceCount = 20
+        var transform = CATransform3DIdentity
+        transform = CATransform3DTranslate(transform, 0, 200, 0)
+        transform = CATransform3DRotate(transform, .pi / 5, 0, 0, 1)
+        transform = CATransform3DTranslate(transform, 0, -200, 0)
+        
+//        replicator.instanceTransform = transform
+//        replicator.instanceColor = NSColor.blue.cgColor
+        replicator.instanceBlueOffset = -0.1
+        replicator.instanceRedOffset = -0.1
+//        replicator.instanceAlphaOffset = -0.05
+        
+        let animation = CABasicAnimation(keyPath: "instanceTransform")
+        animation.fromValue = CATransform3DIdentity
+        animation.toValue = transform
+        animation.duration = 3
+        animation.fillMode = .forwards
+        animation.isRemovedOnCompletion = false
+        replicator.add(animation, forKey: "instanceTransform")
+        
+        let sublayer = CALayer()
+        sublayer.frame = CGRect(x: 200, y: 100, width: 100, height: 100)
+        sublayer.backgroundColor = NSColor.white.cgColor
+        replicator.addSublayer(sublayer)
+        
+        let animation1 = CABasicAnimation(keyPath: "transform.scale")
+        animation1.fromValue = 0
+        animation1.toValue = 1
+        animation1.duration = 3
+        animation1.fillMode = .forwards
+//        animation1.isRemovedOnCompletion = false
+        sublayer.add(animation1, forKey: "instanceTransform")
+        
+    }
+    
+    func testGradientLayer() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = CGRect(x: 10, y: 10, width: 300, height: 100)
+        layer?.addSublayer(gradientLayer)
+        
+        gradientLayer.colors = [NSColor.darkGray.cgColor, NSColor.darkGray.cgColor, NSColor.darkGray.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 1)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        gradientLayer.locations = [0.3, 0.5, 1]
+        
+        let animation = CABasicAnimation(keyPath: "colors")
+        animation.fromValue = gradientLayer.colors
+        animation.toValue = [NSColor.red.cgColor, NSColor.blue.cgColor, NSColor.orange.cgColor]
+        animation.duration = 3
+        animation.beginTime = CACurrentMediaTime() + 2
+        animation.fillMode = .forwards
+        animation.isRemovedOnCompletion = false
+        gradientLayer.add(animation, forKey: "gradientLayer")
+        
     }
 
     func testTransfromLayer() {
+        var pt = CATransform3DIdentity
+        pt.m34 = -1.0 / 300
+        layer?.sublayerTransform = pt
+
         var c1t = CATransform3DIdentity
-        c1t = CATransform3DTranslate(c1t, -100, 0, 0)
+        c1t = CATransform3DTranslate(c1t, -160, 0, 0)
         let cube1 = cubeWithTransform(c1t)
         layer?.addSublayer(cube1)
+        
+        var c2t = CATransform3DIdentity
+        c2t = CATransform3DTranslate(c2t, 150, 0, 0)
+        c2t = CATransform3DRotate(c2t, -CGFloat.pi * 0.25, 1, 0, 0)
+        c2t = CATransform3DRotate(c2t, -CGFloat.pi * 0.25, 0, 1, 0)
+        let cube2 = cubeWithTransform(c2t)
+        layer?.addSublayer(cube2)
+        
     }
 
-    func faceWithTransform(transform: CATransform3D) -> CATransformLayer {
-        let face = CATransformLayer()
+    func faceWithTransform(_ transform: CATransform3D, offset: Double) -> CALayer {
+        let face = CALayer()
         face.frame = CGRect(x: -50, y: -50, width: 100, height: 100)
-        face.backgroundColor = NSColor.green.cgColor
+        face.backgroundColor = NSColor(red: CGFloat(arc4random() & 256 / 255) , green: CGFloat(arc4random() & 256 / 255) , blue: CGFloat(arc4random() & 256 / 255) , alpha: 1).cgColor
         face.transform = transform
+        
+        let animation = CABasicAnimation(keyPath: "transform")
+        animation.fromValue = CATransform3DIdentity
+        animation.toValue = transform
+        animation.duration = 5
+        animation.fillMode = .both
+        if offset == 1 {
+            animation.beginTime = CACurrentMediaTime() + offset
+        } else {
+            animation.beginTime = CACurrentMediaTime() + ((offset - 1) * 5)
+        }
+        face.add(animation, forKey: "transform")
+        
         return face
     }
 
     func cubeWithTransform(_ transform: CATransform3D) -> CATransformLayer {
         let cube = CATransformLayer()
+        
+        //add cube face 1
         var ct = CATransform3DMakeTranslation(0, 0, 50)
-        cube.addSublayer(faceWithTransform(transform: ct))
+        cube.addSublayer(faceWithTransform(ct, offset: 1))
 
+        //add cube face 2
         ct = CATransform3DMakeTranslation(50, 0, 0)
         ct = CATransform3DRotate(ct, CGFloat.pi * 0.5, 0, 1, 0)
-        cube.addSublayer(faceWithTransform(transform: ct))
-        cube.frame = CGRect(x: 20, y: 20, width: 100, height: 100)
+        cube.addSublayer(faceWithTransform(ct, offset: 2))
+        
+        // add cube face 3
+        ct = CATransform3DMakeTranslation(0, -50, 0)
+        ct = CATransform3DRotate(ct, CGFloat.pi * 0.5, 1, 0, 0)
+        cube.addSublayer(faceWithTransform(ct, offset: 3))
+        
+        // add cube face 4
+        ct = CATransform3DMakeTranslation(0, 50, 0)
+        ct = CATransform3DRotate(ct, -CGFloat.pi * 0.5, 1, 0, 0)
+        cube.addSublayer(faceWithTransform(ct, offset: 4))
+        
+        // add cube face 5
+        ct = CATransform3DMakeTranslation(-50, 0, 0)
+        ct = CATransform3DRotate(ct, -CGFloat.pi * 0.5, 0, 1, 0)
+        cube.addSublayer(faceWithTransform(ct, offset: 5))
+        
+        // add cube face 6
+        ct = CATransform3DMakeTranslation(0, 0, -50)
+        ct = CATransform3DRotate(ct, CGFloat.pi, 0, 1, 0)
+        cube.addSublayer(faceWithTransform(ct, offset: 5))
+        
         cube.position = CGPoint(x: bounds.width * 0.5, y: bounds.height * 0.5)
-        cube.backgroundColor = NSColor.white.cgColor
-
         cube.transform = transform
         return cube
     }
